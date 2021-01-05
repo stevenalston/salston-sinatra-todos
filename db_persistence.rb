@@ -78,6 +78,10 @@ class DatabasePersistence
     end
   end
 
+  def disconnect
+    @db.close
+  end
+
   private
   def find_todos(list_id)
     todo_sql = "SELECT * FROM todos WHERE list_id = $1"

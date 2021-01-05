@@ -1,0 +1,11 @@
+CREATE TABLE lists (
+id SERIAL PRIMARY KEY,
+name TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE todos (
+    id SERIAL PRIMARY KEY,
+    list_id INT REFERENCES lists(id) ON DELETE CASCADE,
+    name TEXT NOT NULL,
+    is_completed BOOLEAN NOT NULL DEFAULT false
+);
